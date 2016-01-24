@@ -1,0 +1,4 @@
+«Saturday 23rd of January 2016 05:38:04 PM» The Entity From the IP <127.0.0.1> And the Page </Actas/App/Interfaces/index.php> is trying to exec the query <SELECT User.* FROM User JOIN Church ON User.idChurch = Church.id ORDER BY User.id DESC>
+
+«Saturday 23rd of January 2016 05:38:04 PM» The Entity From the IP <127.0.0.1> And the Page </Actas/App/Interfaces/index.php> is trying to exec the query <UPDATE User SET username = 'sanjuandedios', type = 'G', password = '3daa14af1e08c7d8cb467f5b585cd23b6542ecc1', idChurch = 440, offline = 1, language = 'es', lastActivityTime = '1452296606', idPaperConfig = 1, addressIP = '177.230.234.181' WHERE User.id = 5>
+

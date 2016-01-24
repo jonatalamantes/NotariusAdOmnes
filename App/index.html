@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+        <script type="text/javascript">
+            url = String(window.location);
+            
+            if (url.indexOf('?') !== -1) //?param
+            {
+                url = url.substring(0, url.indexOf('?')) + "Interfaces/";
+            }
+            else
+            {
+                url = url + "Interfaces/";
+            }
+            
+            window.location.href = url;
+
+		</script>
+</body>
+</html>

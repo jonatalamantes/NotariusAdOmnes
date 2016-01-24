@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="../icons/confirmation.png">
+
+        <title>^Config User Account^</title>
+
+        <link href="../Bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../Bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+        <link href="../CSS/General.css" rel="stylesheet">
+        <link href="../CSS/JQueryUI.css" rel="stylesheet">
+        <link href="../CSS/font-awesome/css/font-awesome.css" rel="stylesheet" >
+        <link href="../Bootstrap/dist/css/bootstrap-select.css" rel="stylesheet">
+        <link href="../Bootstrap/dist/css/bootstrap-select.min.css" rel="stylesheet">
+
+        <script src="../Bootstrap/docs/assets/js/ie-emulation-modes-warning.js"></script>
+        <script src="../JS/JQuery.js"></script>
+        <script src="../JS/functions.js"></script>
+        <script src="../JS/JQueryUI.js"></script>
+        <script src="../JS/Ajax/ajax.js"></script>
+        <script src="../Bootstrap/docs/dist/js/bootstrap.min.js"></script>
+        <script src="../Bootstrap/docs/examples/tooltip-viewport/tooltip-viewport.js"></script>
+        <script src="../JS/Bootstrap-select.min.js"></script>
+    </head>
+    <body role="document" onload="reziseTable(); loadCalendar(); hiddenElement('advancedSearch', 'true')" onresize="reziseTable();" onbeforeunload="closeSession();">
+
+        |NavBar|
+
+        <div class="container theme-showcase" role="main">
+            |Alert|
+            <div class="panel panel-info" id='main'>
+                <div class="panel-heading">
+                    <h3 class="panel-title">^Config User Account^</h3>
+                </div>
+                <div class="panel-body" id='panel-body'>
+                    <div id="no-more-tables2">
+                        <table class="table table-condensed cf" id="table1">
+                            <tbody style="margin-left: 20px; background-color: transparent;">
+                                <tr>
+                                    <th style="text-align: center;" colspan="2">
+                                        <label class="inside-form" id="name">^Language^</label>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td data-title="^Language^" style="text-align: center;" colspan="2">
+                                        <div>
+                                            <select class="selectpicker show-tick form-control" id="language">
+                                                <option>^Spanish^</option>
+                                                <option |isEnglish|>^English^</option>
+                                            </select>                    
+                                        </div>
+                                        <p></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="text-align: center;">
+                                        <label class="inside-form" id="bcxt">^Baptism Cert^ X</label>
+                                    </th>
+                                    <th style="text-align: center;">
+                                        <label class="inside-form" id="bcyt">^Baptism Cert^ Y</label>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td data-title="^Baptism Cert^ X">
+                                        <input type="text" class="form-control" placeholder="^characters^" id="bcx" onkeyup="inputNumeric('bcx');" onclick="normalData('config.php')">
+                                    </td>  
+                                    <td data-title="^Baptism Cert^ Y">
+                                        <input type="text" class="form-control" placeholder="^characters^" id="bcy" onkeyup="inputNumeric('bcy');" onclick="normalData('config.php')">
+                                    </td>  
+                                </tr>
+                                <tr>
+                                    <th style="text-align: center;">
+                                        <label class="inside-form" id="cbcxt">^Copy Baptism Cert^ X</label>
+                                    </th>
+                                    <th style="text-align: center;">
+                                        <label class="inside-form" id="cbcyt">^Copy Baptism Cert^ Y</label>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td data-title="^Copy Baptism Cert^ X">
+                                        <input type="text" class="form-control" placeholder="^characters^" id="cbcx" onkeyup="inputNumeric('cbcx');" onclick="normalData('config.php')">
+                                    </td>  
+                                    <td data-title="^Copy Baptism Cert^ Y">
+                                        <input type="text" class="form-control" placeholder="^characters^" id="cbcy" onkeyup="inputNumeric('cbcy');" onclick="normalData('config.php')">
+                                    </td>  
+                                </tr>
+                                <tr>
+                                    <th style="text-align: center;">
+                                        <label class="inside-form" id="ecxt">^Communion Cert^ X</label>
+                                    </th>
+                                    <th style="text-align: center;">
+                                        <label class="inside-form" id="ecyt">^Communion Cert^ Y</label>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td data-title="^Communion Cert^ X">
+                                        <input type="text" class="form-control" placeholder="^characters^" id="ecx" onkeyup="inputNumeric('ecx');" onclick="normalData('config.php')">
+                                    </td>  
+                                    <td data-title="^Communion Cert^ Y">
+                                        <input type="text" class="form-control" placeholder="^characters^" id="ecy" onkeyup="inputNumeric('ecy');" onclick="normalData('config.php')">
+                                    </td>  
+                                </tr>
+                                <tr>
+                                    <th style="text-align: center;">
+                                        <label class="inside-form" id="cecxt">^Copy Communion Cert^ X</label>
+                                    </th>
+                                    <th style="text-align: center;">
+                                        <label class="inside-form" id="cecyt">^Copy Communion Cert^ Y</label>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td data-title="^Copy Communion Cert^ X">
+                                        <input type="text" class="form-control" placeholder="^characters^" id="cecx" onkeyup="inputNumeric('cecx');" onclick="normalData('config.php')">
+                                    </td>  
+                                    <td data-title="^Copy Communion Cert^ Y">
+                                        <input type="text" class="form-control" placeholder="^characters^" id="cecy" onkeyup="inputNumeric('cecy');" onclick="normalData('config.php')">
+                                    </td>  
+                                </tr>
+                                <tr>
+                                    <th style="text-align: center;">
+                                        <label class="inside-form" id="ccxt">^Confirmation Cert^ X</label>
+                                    </th>
+                                    <th style="text-align: center;">
+                                        <label class="inside-form" id="ccyt">^Confirmation Cert^ Y</label>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td data-title="^Confirmation Cert^ X">
+                                        <input type="text" class="form-control" placeholder="^characters^" id="ccx" onkeyup="inputNumeric('ccx');" onclick="normalData('config.php')">
+                                    </td>  
+                                    <td data-title="^Confirmation Cert^ Y">
+                                        <input type="text" class="form-control" placeholder="^characters^" id="ccy" onkeyup="inputNumeric('ccy');" onclick="normalData('config.php')">
+                                    </td>  
+                                </tr>
+                                <tr>
+                                    <th style="text-align: center;">
+                                        <label class="inside-form" id="cccxt">^Copy Confirmation Cert^ X</label>
+                                    </th>
+                                    <th style="text-align: center;">
+                                        <label class="inside-form" id="cccyt">^Copy Confirmation Cert^ Y</label>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td data-title="^Copy Confirmation Cert^ X">
+                                        <input type="text" class="form-control" placeholder="^characters^" id="cccx" onkeyup="inputNumeric('cccx');" onclick="normalData('config.php')">
+                                    </td>  
+                                    <td data-title="^Copy Confirmation Cert^ Y">
+                                        <input type="text" class="form-control" placeholder="^characters^" id="cccy" onkeyup="inputNumeric('cccy');" onclick="normalData('config.php')">
+                                    </td>  
+                                </tr>
+                                <tr>
+                                    <th style="text-align: center;">
+                                        <label class="inside-form" id="cmxt">^Copy Marriage Cert^ X</label>
+                                    </th>
+                                    <th style="text-align: center;">
+                                        <label class="inside-form" id="cmyt">^Copy Marriage Cert^ Y</label>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td data-title="^Copy Marriage Cert^ X">
+                                        <input type="text" class="form-control" placeholder="^characters^" id="mcx" onkeyup="inputNumeric('mcx');" onclick="normalData('config.php')">
+                                    </td>  
+                                    <td data-title="^Copy Marriage Cert^ Y">
+                                        <input type="text" class="form-control" placeholder="^characters^" id="mcy" onkeyup="inputNumeric('mcy');" onclick="normalData('config.php')">
+                                    </td>  
+                                </tr>
+                                <tr>
+                                    <th style="text-align: center;">
+                                        <label class="inside-form" id="mcxt">^Marriage Constancy^ X</label>
+                                    </th>
+                                    <th style="text-align: center;">
+                                        <label class="inside-form" id="mcyt">^Marriage Constancy^ Y</label>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td data-title="^Marriage Constancy^ X">
+                                        <input type="text" class="form-control" placeholder="^characters^" id="mbx" onkeyup="inputNumeric('mbx');" onclick="normalData('config.php')">
+                                    </td>  
+                                    <td data-title="^Marriage Constancy^ Y">
+                                        <input type="text" class="form-control" placeholder="^characters^" id="mby" onkeyup="inputNumeric('mby');" onclick="normalData('config.php')">
+                                    </td>  
+                                </tr>
+                                <tr>
+                                    <th style="text-align: center;">
+                                        <label class="inside-form" id="mnxt">^Marriage Notice^ X</label>
+                                    </th>
+                                    <th style="text-align: center;">
+                                        <label class="inside-form" id="mnyt">^Marriage Notice^ Y</label>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td data-title="^Marriage Notice^ X">
+                                        <input type="text" class="form-control" placeholder="^characters^" id="mnx" onkeyup="inputNumeric('mnx');" onclick="normalData('config.php')">
+                                    </td>  
+                                    <td data-title="^Marriage Notice^ Y">
+                                        <input type="text" class="form-control" placeholder="^characters^" id="mny" onkeyup="inputNumeric('mny');" onclick="normalData('config.php')">
+                                    </td>  
+                                </tr>
+                                <tr>
+                                    <th style="text-align: center;">
+                                        <label class="inside-form" id="mext">^Marriage Exhort^ X</label>
+                                    </th>
+                                    <th style="text-align: center;">
+                                        <label class="inside-form" id="meyt">^Marriage Exhort^ Y</label>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td data-title="^Marriage Exhort^ X">
+                                        <input type="text" class="form-control" placeholder="^characters^" id="mex" onkeyup="inputNumeric('mex');" onclick="normalData('config.php')">
+                                    </td>  
+                                    <td data-title="^Marriage Exhort^ Y">
+                                        <input type="text" class="form-control" placeholder="^characters^" id="mey" onkeyup="inputNumeric('mey');" onclick="normalData('config.php')">
+                                    </td>  
+                                </tr>
+                                <tr>
+                                    <th style="text-align: center;">
+                                        <label class="inside-form" id="mtxt">^Marriage Traslation^ X</label>
+                                    </th>
+                                    <th style="text-align: center;">
+                                        <label class="inside-form" id="mtyt">^Marriage Traslation^ Y</label>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td data-title="^Marriage Traslation^ X">
+                                        <input type="text" class="form-control" placeholder="^characters^" id="mtx" onkeyup="inputNumeric('mtx');" onclick="normalData('config.php')">
+                                    </td>  
+                                    <td data-title="^Marriage Traslation^ Y">
+                                        <input type="text" class="form-control" placeholder="^characters^" id="mty" onkeyup="inputNumeric('mty');" onclick="normalData('config.php')">
+                                    </td>  
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                <p>
+                    |SaveButton|
+                    |CancelButton|
+                    |ReturnButton|
+                </p>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <p class="text-muted">
+                    Notarius Ad Omnes, <a href="noticeOfPrivacy.php">^Check Our Notice Of Privacy^.</a>
+                </p>
+            </div>
+        </footer>    
+    </body>
+</html>

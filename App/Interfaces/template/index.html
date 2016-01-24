@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="../icons/confirmation.png">
+
+        <title>Login</title>
+
+        <link href="../Bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../Bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+        <link href="../CSS/General.css" rel="stylesheet">
+        <link rel="stylesheet" href="../CSS/font-awesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../CSS/login.css">
+        
+        <script src="../Bootstrap/docs/assets/js/ie-emulation-modes-warning.js"></script>
+        <script src="../JS/JQuery.js"></script>
+        <script src="../JS/functions.js"></script>
+        <script src="../JS/Ajax/ajax.js"></script>
+        <script src="../Bootstrap/docs/dist/js/bootstrap.min.js"></script>
+    </head>
+    <body role="document" onload="document.getElementById('txtUser').focus();">
+    <h2>Notarius Ad Omnes</h2><br>
+        <div class="center">
+            <ul class="list-group">
+                <br>
+                <li>
+                    <p class="notxtlogin" id='txtloginu'>
+                        <span class="fa fa-user"></span> Username
+                    </p>
+                </li>
+                <li>
+                    <p class="txtlogin">
+                        <input name="txtUser" type="text" id="txtUser" placeholder="Username" class="inputs" onclick="normalBackground();" onkeyup="inputCharacter('txtUser');" focus>
+                    </p>
+                </li>
+                <li>
+                    <p class="notxtlogin" id = 'txtloginp'>
+                        <span class="fa fa-lock"></span> Password
+                    </p>
+                </li>
+                <li>
+                    <p class="txtlogin">
+                        <input name="txtPassword" type="password" id="txtPassword" placeholder="••••••••" class="inputs"  onclick="normalBackground();" onkeypress="isEnter(event);">
+                    </p>
+                </li>
+                <li>
+                    <p class="txtlogin">
+                        <button class="hvr-skew-forward" onclick ='validateUser()'>
+                            Acceder <span class="fa fa-signin"></span>
+                        </button>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>

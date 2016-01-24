@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+            url = String(window.location);
+            
+            if (url.indexOf('?') !== -1) //?param
+            {
+                url = url.substring(0, url.indexOf('?')) + "App/Interfaces/";
+            }
+            else
+            {
+                url = url + "App/Interfaces/";
+            }
+            
+			window.location.href = url;
+		</script>
+	</body>
+</html>

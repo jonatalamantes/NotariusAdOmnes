@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="../icons/confirmation.png">
+
+        <title>^|title|^</title>
+
+        <link href="../Bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../Bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+        <link href="../CSS/General.css" rel="stylesheet">
+        <link href="../CSS/JQueryUI.css" rel="stylesheet">
+        <link href="../CSS/font-awesome/css/font-awesome.css" rel="stylesheet" >
+        <link href="../Bootstrap/dist/css/bootstrap-select.css" rel="stylesheet">
+        <link href="../Bootstrap/dist/css/bootstrap-select.min.css" rel="stylesheet">
+
+        <script src="../Bootstrap/docs/assets/js/ie-emulation-modes-warning.js"></script>
+        <script src="../JS/JQuery.js"></script>
+        <script src="../JS/functions.js"></script>
+        <script src="../JS/JQueryUI.js"></script>
+        <script src="../JS/Ajax/ajax.js"></script>
+        <script src="../Bootstrap/docs/dist/js/bootstrap.min.js"></script>
+        <script src="../Bootstrap/docs/examples/tooltip-viewport/tooltip-viewport.js"></script>
+        <script src="../JS/Bootstrap-select.min.js"></script>
+    </head>
+    <body role="document" onload="reziseTable(); loadCalendar(); hiddenElement('advancedSearch', 'true')" onresize="reziseTable();" onbeforeunload="closeSession();">
+
+        |NavBar|
+        <div class="container theme-showcase" role="main">
+            <div class="jumbotron">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">^About The Child^</h3>
+                    </div>
+                    <div class="panel-body" id='panel-body'>
+                        <div class="container">
+                            <div id="no-more-tables2">
+                                <table class="table table-condensed cf" id="table1">
+                                    <tbody style="margin-left: 20px; background-color: transparent;">
+                                        <tr style="display:none;">
+                                            <td id="idCommunion" disabled>0</td>
+                                            <td id="idPerson" disabled>0</td>
+                                            <td id="idFather" disabled>0</td>
+                                            <td id="idMother" disabled>0</td>
+                                        </tr>
+                                        <tr>
+                                            <th style="text-align: center;" class="childData">
+                                                <label class="inside-form" id="labelName">^Names^ *</label>
+                                            </th>
+                                            <th style="text-align: center;">
+                                                <label class="inside-form" id="labelLastname1">^First Lastname^ *</label>
+                                            </th>
+                                            <th style="text-align: center;">
+                                                <label class="inside-form" id="labelLastname2">^Second Lastname^ *</label>
+                                            </th>
+                                            <td style="text-align: center;" rowspan="2" id='btnChildCheck'>
+                                            <button class="btn btn-success" onclick="auxiliarWindow('child');" disabled id="btnInsideChildCheck">^Check Exist^<br> ^Person^</button>
+                                            </td>                                        
+                                        </tr>
+                                        <tr>
+                                            <td data-title="^Names^ *" style="text-align: center;" class="childData">
+                                                <input type="text" class="form-control" placeholder="^characters^" id="childName" onkeyup="inputNames('childName');" onclick="normalData('communionInsertion.php');" disabled>
+                                            </td>
+                                            <td data-title="^First Lastname^ *" style="text-align: center;">
+                                                <input type="text" class="form-control" placeholder="^characters^" id="childLastname1" onkeyup="inputNames('childLastname1');" onclick="normalData('communionInsertion.php');" disabled>
+                                            </td>
+                                            <td data-title="^Second Lastname^ *" style="text-align: center;">
+                                                <input type="text" class="form-control" placeholder="^characters^" id="childLastname2" onkeyup="inputNames('childLastname2');" onclick="normalData('communionInsertion.php');" disabled>
+                                            </td>                                        
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">^About The Celebration^</h3>
+                    </div>
+                    <div class="panel-body" id='panel-body'>
+                        <div class="container">
+                            <div id="no-more-tables2">
+                                <table class="table table-condensed cf" id="table1">
+                                    <tbody style="margin-left: 20px; background-color: transparent;">
+                                        <tr>
+                                            <th style="text-align: center; vertical-align: center;">
+                                                <label class="inside-form" id="labelChurch">^Church^ *</label>
+                                            </th>
+                                            <th style="text-align: center; vertical-align: center;">
+                                                <label class="inside-form" id="labelRector">^Rector^ *</label>
+                                            </th>
+                                            <th style="text-align: center; vertical-align: center;">
+                                                <label class="inside-form">^Communion Date^</label>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td data-title="^Church^ *" style="margin-bottom: 15px; text-align: center; vertical-align: center;">
+                                                <div class="input-group">
+                                                    <select class="selectpicker show-tick form-control" data-live-search="true" style="margin-top:100px;" id="church" ~onchange="getFormerRector()"~ disabled>
+                                                        |ChurchOption|
+                                                    </select>                    
+                                                    <div class="input-group-btn">
+                                                        <button class="btn btn-default tooltip-bottom"  ~onclick="href('addRelationChurchRector.php')"~ id="btnAddRelation1" disabled>
+                                                            <img src="../icons/rector.png" height="15px">
+                                                        </button>
+                                                        <button class="btn btn-default" ~onclick="href('churchInsertion.php')" style="margin-left: -6px"~ disabled id="btnAddChurch">
+                                                            <span class="fa fa-plus"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td data-title="^Rector^ *" style="margin-bottom: 15px; text-align: center; vertical-align: center;">
+                                                <div class="btn-group bootstrap-select input-group-btn form-control dropup">
+                                                    <div class="input-group">
+                                                        <button title="" aria-expanded="false" data-id="insideRector" type="button" class="btn dropdown-toggle btn-default form-control" data-toggle="dropdown" id="insideRector" value="0" onclick="normalData('baptismInsertion.php');" disabled>
+                                                            <span class="filter-option pull-left">No</span>
+                                                        </button>
+                                                        <ul class="dropdown-menu scrollable-menu" role="menu" id="ulrector"></ul>
+                                                        <div class="input-group-btn">
+                                                            <button class="btn btn-default tooltip-bottom" ~onclick="href('addRelationChurchRector.php')"~ disabled id="btnAddRelation2">
+                                                                <img src="../icons/church.png" height="15px">
+                                                            </button>
+                                                            <button class="btn btn-default" ~onclick="href('rectorInsertion.php')" style="margin-left: -6px"~ disabled id="btnAddRector">
+                                                                <span class="fa fa-plus"></span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td data-title="^Communion Date^" style="padding-top: 15px; text-align: center; vertical-align: center;">
+                                                <input type="text" class="form-control" placeholder="^date^" id="childCommunionDate" disabled>
+                                            </td>                                        
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <span>
+                                <button class="btn btn-danger" style="margin-top: -5px" onclick="hiddenElement('panel-body-father', 'true'); hiddenElement('btnHideFather', 'true', 'inline'); hiddenElement('btnShowFather', 'false', 'inline');" id="btnHideFather" disabled>
+                                    <span class="fa fa-minus"></span>
+                                </button>
+                                <button class="btn btn-danger" style="margin-top: -5px; display: none;" onclick="hiddenElement('panel-body-father', 'false'); hiddenElement('btnHideFather', 'false', 'inline'); hiddenElement('btnShowFather', 'true', 'inline');" id="btnShowFather" disabled>
+                                    <span class="fa fa-plus"></span>
+                                </button>
+                            </span>
+                            <span>^About The Father^</span>
+                        </h3>
+                    </div>
+                    <div class="panel-body" id='panel-body-father'>
+                        <div class="container">
+                            <div id="no-more-tables2">
+                                <table class="table table-condensed cf" id="table1">
+                                    <tbody style="margin-left: 20px; background-color: transparent;">
+                                        <tr>
+                                            <th style="text-align: center;">
+                                                <label class="inside-form">^Names^</label>
+                                            </th>
+                                            <th style="text-align: center;">
+                                                <label class="inside-form">^First Lastname^</label>
+                                            </th>
+                                            <th style="text-align: center;">
+                                                <label class="inside-form">^Second Lastname^</label>
+                                            </th>
+                                            <td style="text-align: center;" rowspan="2" id='btnFatherCheck'>
+                                                <button class="btn btn-success" onclick="auxiliarWindow('father');" disabled id="btnInsideFatherCheck">^Check Exist^<br> ^Person^</button>
+                                            </td>                                        
+                                        </tr>
+                                        <tr>
+                                            <td data-title="^Names^">
+                                                <input type="text" class="form-control" placeholder="^characters^" id="fatherName" onkeyup="inputNames('fatherName');" disabled>
+                                            </td>
+                                            <td data-title="^First Lastname^">
+                                                <input type="text" class="form-control" placeholder="^characters^" id="fatherLastname1" onkeyup="inputNames('fatherLastname1');" disabled>
+                                            </td>
+                                            <td data-title="^Second Lastname^">
+                                                <input type="text" class="form-control" placeholder="^characters^" id="fatherLastname2" onkeyup="inputNames('fatherLastname2');" disabled>
+                                            </td>         
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <span>
+                                <button class="btn btn-danger" style="margin-top: -5px" onclick="hiddenElement('panel-body-mother', 'true'); hiddenElement('btnHideMother', 'true', 'inline'); hiddenElement('btnShowMother', 'false', 'inline');" id="btnHideMother" disabled>
+                                    <span class="fa fa-minus"></span>
+                                </button>
+                                <button class="btn btn-danger" style="margin-top: -5px; display: none;" onclick="hiddenElement('panel-body-mother', 'false'); hiddenElement('btnHideMother', 'false', 'inline'); hiddenElement('btnShowMother', 'true', 'inline');" id="btnShowMother" disabled>
+                                    <span class="fa fa-plus"></span>
+                                </button>
+                            </span>
+                            <span>^About The Mother^</span>
+                        </h3>
+                    </div>
+                    <div class="panel-body" id='panel-body-mother'>
+                        <div class="container">
+                            <div id="no-more-tables2">
+                                <table class="table table-condensed cf" id="table1">
+                                    <tbody style="margin-left: 20px; background-color: transparent;">
+                                        <tr>
+                                            <th style="text-align: center;">
+                                                <label class="inside-form">^Names^</label>
+                                            </th>
+                                            <th style="text-align: center;">
+                                                <label class="inside-form">^First Lastname^</label>
+                                            </th>
+                                            <th style="text-align: center;">
+                                                <label class="inside-form">^Second Lastname^</label>
+                                            </th>
+                                            <td style="text-align: center;" rowspan="2" id='btnMotherCheck'>
+                                                <button class="btn btn-success" onclick="auxiliarWindow('mother');" disabled id="btnInsideMotherCheck">^Check Exist^<br> ^Person^</button>
+                                            </td>                                        
+                                        </tr>
+                                        <tr>
+                                            <td data-title="^Names^">
+                                                <input type="text" class="form-control" placeholder="^characters^" id="motherName" onkeyup="inputNames('motherName');" disabled>
+                                            </td>
+                                            <td data-title="^First Lastname^">
+                                                <input type="text" class="form-control" placeholder="^characters^" id="motherLastname1" onkeyup="inputNames('motherLastname1');" disabled>
+                                            </td>
+                                            <td data-title="^Second Lastname^">
+                                                <input type="text" class="form-control" placeholder="^characters^" id="motherLastname2" onkeyup="inputNames('motherLastname2');" disabled>
+                                            </td>                                        
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">^About The Godparents^</h3>
+                    </div>
+                    <div class="panel-body" id='panel-body'>
+                        <div class="container">
+                            <div id="no-more-tables2">
+                                <table class="table table-condensed cf" id="table1">
+                                    <tbody style="margin-left: 20px; background-color: transparent;">
+                                        <tr>
+                                            <th style="text-align: center;">
+                                                <label class="inside-form">^Godfather^: ^Names^</label>
+                                            </th>
+                                            <th style="text-align: center;">
+                                                <label class="inside-form">^Godfather^: ^First Lastname^</label>
+                                            </th>
+                                            <th style="text-align: center;">
+                                                <label class="inside-form">^Godfather^: ^Second Lastname^</label>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td data-title="^Godfather^: ^Names^">
+                                                <input type="text" class="form-control" placeholder="^characters^" id="godfatherName" onkeyup="inputNames('godfatherName');" disabled>
+                                            </td>
+                                            <td data-title="^Godfather^: ^First Lastname^">
+                                                <input type="text" class="form-control" placeholder="^characters^" id="godfatherLastname1" onkeyup="inputNames('godfatherLastname1');" disabled>
+                                            </td>
+                                            <td data-title="^Godfather^: ^Second Lastname^">
+                                                <input type="text" class="form-control" placeholder="^characters^" id="godfatherLastname2" onkeyup="inputNames('godfatherLastname2');" disabled>
+                                            </td>                                        
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">^About The Church Registry^</h3>
+                    </div>
+                    <div class="panel-body" id='panel-body'>
+                        <div class="container">
+                            <div id="no-more-tables2">
+                                <table class="table table-condensed cf" id="table1">
+                                    <tbody style="margin-left: 20px; background-color: transparent;">
+                                        <tr>
+                                            <th style="text-align: center;">
+                                                <label class="inside-form">^Book^</label>
+                                            </th>
+                                            <th style="text-align: center;">
+                                                <label class="inside-form">^Page^</label>
+                                            </th>
+                                            <th style="text-align: center;">
+                                                <label class="inside-form">^Number^</label>
+                                            </th>
+                                            <th style="text-align: center;">
+                                                <label class="inside-form">^Reverse^</label>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td data-title="^Book^" style="padding-top: 15px;">
+                                                <input type="text" class="form-control" placeholder="^characters^" id="bookregistryBook" onkeyup="inputCharacter('bookregistryBook');" disabled>
+                                            </td>
+                                            <td data-title="^Page^" style="padding-top: 15px;">
+                                                <input type="text" class="form-control" placeholder="^characters^" id="bookregistryPage" onkeyup="inputNumeric('bookregistryPage');" disabled>
+                                            </td>
+                                            <td data-title="^Number^" style="padding-top: 15px;">
+                                                <input type="text" class="form-control" placeholder="^characters^" id="bookregistryNumber" onkeyup="inputNumeric('bookregistryNumber');" disabled>
+                                                </td>                                        
+                                            <td data-title="^Reverse^">
+                                                <div class="input-group" style="margin:auto;">
+                                                    <div>
+                                                        <select class="selectpicker show-tick form-control" id="reverse" disabled>
+                                                            <option>^Yes^</option>
+                                                            <option |isntReverse|>No</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </td>                                        
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p>
+                    |SaveButton|
+                    |CancelButton|
+                    |ReturnButton|
+                </p>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <p class="text-muted">
+                    Notarius Ad Omnes, <a href="noticeOfPrivacy.php">^Check Our Notice Of Privacy^.</a>
+                </p>
+            </div>
+        </footer>    
+    </body>
+</html>

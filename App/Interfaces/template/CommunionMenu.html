@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="../icons/confirmation.png">
+
+        <title>^Communion Menu^</title>
+
+        <link href="../Bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../Bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+        <link href="../CSS/General.css" rel="stylesheet">
+        <link href="../CSS/JQueryUI.css" rel="stylesheet">
+        <link href="../CSS/font-awesome/css/font-awesome.css" rel="stylesheet" >
+        <link href="../Bootstrap/dist/css/bootstrap-select.css" rel="stylesheet">
+        <link href="../Bootstrap/dist/css/bootstrap-select.min.css" rel="stylesheet">
+
+        <script src="../Bootstrap/docs/assets/js/ie-emulation-modes-warning.js"></script>
+        <script src="../JS/JQuery.js"></script>
+        <script src="../JS/functions.js"></script>
+        <script src="../JS/JQueryUI.js"></script>
+        <script src="../JS/Ajax/ajax.js"></script>
+        <script src="../Bootstrap/docs/dist/js/bootstrap.min.js"></script>
+        <script src="../Bootstrap/docs/examples/tooltip-viewport/tooltip-viewport.js"></script>
+        <script src="../JS/Bootstrap-select.min.js"></script>
+    </head>
+    <body role="document" onload="reziseTable(); loadCalendar(); hiddenElement('advancedSearch', 'true')" onresize="reziseTable();" onbeforeunload="closeSession();">
+
+        |NavBar|
+
+        <div class="container theme-showcase" role="main">
+            <div class="panel panel-info" id='main'>
+                <div class="panel-heading">
+                    <h3 class="panel-title">^Communion Menu^</h3>
+                </div>
+                <div class="panel-body" id='panel-body'>
+                    <form class="navbar-form" id='simpleSearch' onsubmit="return false;">
+                        <div class="well" style="text-align: center;">
+                            <div class="input-group">
+                                <input type="text" id="inputSimple" class="form-control" placeholder="ID ^or^ ^Names^" onkeyup="inputCharacter('inputSimple')">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default" style="margin-top: 0px; margin-left: 3px" onclick="simpleSearch('communionMenu.php')">
+                                        <span class="fa fa-search"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-warning btn-no-inside" onclick="href('communionMenu.php');">
+                                <img src="../icons/communion.png" height="30px">^Show All^
+                            </button>
+                            <button type="button" class="btn btn-warning btn-no-inside" onclick="href('communionInsertion.php');">
+                                <img src="../icons/plus.png" height="30px"> ^Add^
+                            </button>
+                            <button type="button" class="btn btn-info btn-no-inside" onclick="hiddenElement('simpleSearch', 'true'); hiddenElement('advancedSearch', 'false');">
+                                ^Advanced Search^
+                            </button>
+                        </div>
+                    </form>
+                    <form class="navbar-form" id="advancedSearch" hidden onsubmit="return false;">
+                        <div class="well">
+                            <p>
+                                <button type="button" class="btn btn-warning btn-no-inside"  onclick="href('communionMenu.php');">
+                                    <img src="../icons/communion.png" height="30px">^Show All^
+                                </button>
+                                <button type="button" class="btn btn-warning btn-no-inside" onclick="href('communionInsertion.php');">
+                                    <img src="../icons/plus.png" height="30px"> ^Add^
+                                </button>
+                                <button type="button" class="btn btn-info btn-no-inside" onclick="hiddenElement('simpleSearch', 'false'); hiddenElement('advancedSearch', 'true');">^Simple Search^</button>
+                            </p>
+                            <p>
+                                <input type="text" class="form-control" placeholder="ID" id="inputId" onkeyup="inputNumeric('inputId');" style="display:none;">
+                                <input type="text" class="form-control" placeholder="^Name Church^" id="inputChurch" onkeyup="inputNames('inputChurch')">
+                                <input type="text" class="form-control" placeholder="^Communion Date^" id="inputCelebrationDate">
+                            </p><p>
+                                <input type="text" class="form-control" placeholder="^Names of Child^" id="inputChildNames" onkeyup="inputNames('inputChildNames')">
+                                <input type="text" class="form-control" placeholder="^First Lastname^ ^of Child^" id="inputChildLastname1" onkeyup="inputNames('inputChildLastname1')">
+                                <input type="text" class="form-control" placeholder="^Second Lastname^ ^of Child^" id="inputChildLastname2" onkeyup="inputNames('inputChildLastname2')">
+                            </p><p>
+                                <input type="text" class="form-control" placeholder="^Father^: ^Names^" id="inputFatherNames" onkeyup="inputNames('inputFatherNames')">
+                                <input type="text" class="form-control" placeholder="^Father^: ^First Lastname^" id="inputFatherLastname1" onkeyup="inputNames('inputFatherLastname1')">
+                                <input type="text" class="form-control" placeholder="^Father^: ^Second Lastname^" id="inputFatherLastname2" onkeyup="inputNames('inputFatherLastname2')">
+                            </p><p>
+                                <input type="text" class="form-control" placeholder="^Mother^: ^Names^" id="inputMotherNames" onkeyup="inputNames('inputMotherNames')">
+                                <input type="text" class="form-control" placeholder="^Mother^: ^First Lastname^" id="inputMotherLastname1" onkeyup="inputNames('inputMotherLastname1')">
+                                <input type="text" class="form-control" placeholder="^Mother^: ^Second Lastname^" id="inputMotherLastname2" onkeyup="inputNames('inputMotherLastname2')">
+                            </p><p>
+                                <input type="text" class="form-control" placeholder="^Communion Book^" id="inputBook" onkeyup="inputNumeric('inputBook')">
+                                <input type="text" class="form-control" placeholder="^Communion Page^" id="inputPage" onkeyup="inputNumeric('inputPage')">
+                                <input type="text" class="form-control" placeholder="^Communion Number^" id="inputNumber" onkeyup="inputNumeric('inputNumber')">
+                            </p><p>
+                                <button type="button" class="btn btn-success" onclick="advancedSearch('communionMenu.php')">
+                                    <strong>^Search^</strong>
+                                    <img src="../icons/search.png" height="30px">
+                                </button>
+                            </p>
+                        </div>
+                    </form>
+                    <div class="container">
+                        <div id="no-more-tables">
+                            |tableContest|
+                        </div>
+                    </div>
+                    <br>
+                    <div class="alert alert-success" role="alert" style="text-align:center">
+                            |buttonFirst||buttonPrev||buttonNext||buttonLast|
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <p class="text-muted">
+                    Notarius Ad Omnes, <a href="noticeOfPrivacy.php">^Check Our Notice Of Privacy^.</a>
+                </p>
+            </div>
+        </footer>    
+    </body>
+</html>
